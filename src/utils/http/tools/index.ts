@@ -1,6 +1,4 @@
-import type { IResponse } from '../types';
-import { ContentTypeEnum, ResultEnum, ShowMessage } from './enum';
-import { resolveApiUrl } from './server';
+import { ContentTypeEnum, ResultEnum } from './enum';
 
 /**
  * 显示提示信息并返回一个拒绝的Promise
@@ -40,8 +38,6 @@ export function beforeRequest(method: any) {
     Accept: 'application/json, text/plain, */*',
     ...method.config.headers,
   };
-  // 处理动态域名多服务
-  method.baseURL = resolveApiUrl(config.meta?.otherServiceUrl);
 }
 
 /**
@@ -49,34 +45,17 @@ export function beforeRequest(method: any) {
  * @param {object} method:Method - 请求方法对象，包含请求配置、返回信息解密
  */
 export async function afterResponse(response: any, method: any) {
-  console.error('[response]==>>>:', response);
+  console.log('[response]==>>>:', response);
 
   const { config } = method;
-  const { requestType, meta } = config;
-  const { status: statusCode, data: rawData } = response;
+  const { requestType } = config;
 
   // 处理特殊请求类型（上传/下载）
   if (requestType === 'upload' || requestType === 'download') {
     return response;
   }
-  // 处理 HTTP 状态码错误
-  if (statusCode !== 200) {
-    const errorMessage = ShowMessage(statusCode) || `HTTP请求错误[${statusCode}]`;
-    return showGloablToast(errorMessage, config.meta?.Tips);
-  }
-  // 处理业务逻辑
-  const { data } = rawData as IResponse;
-  // 整体数据
-  if (meta?.resAll) {
-    return response;
-  }
 
-  if (data?.code && data?.code * 1 !== ResultEnum.Success200) {
-    showGloablToast(data.msg, config.meta?.Tips);
-    return response;
-  }
-
-  return response;
+  return response.data;
 }
 
 /**

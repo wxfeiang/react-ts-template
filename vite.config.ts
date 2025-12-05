@@ -68,7 +68,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           manualChunks: {
             'vendor-react': ['react', 'react-dom', 'react-router'],
             'vendor-utils': [
-              'axios',
+              'alova',
               'dayjs',
               'immer',
               'zustand',
@@ -90,7 +90,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         'zustand',
         'classnames',
         'es-toolkit',
-        'axios',
+        'alova',
         'dayjs',
         'immer',
         'ahooks',
