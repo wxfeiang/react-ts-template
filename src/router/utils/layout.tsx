@@ -7,7 +7,7 @@ export default function layout() {
     <div>
       <nav>这里是layoud的顶部</nav>
       <Outlet />
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
