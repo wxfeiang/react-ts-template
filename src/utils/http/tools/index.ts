@@ -103,5 +103,5 @@ export function refreshToken() {
   // userStore.setToken(token)
   // // 重试请求
   // // retryRequest()
-  console.log('====>>', '刷新token');
+  console.error('====>>', '刷新token');
 }

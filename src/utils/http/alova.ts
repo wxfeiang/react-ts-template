@@ -34,10 +34,10 @@ const { onAuthRequired, onResponseRefreshToken } = createServerTokenAuthenticati
     handler: async () => {
       try {
         // await authLogin();
-        console.log('222222🍒======>>>>');
+        console.error('222222🍒======>>>>');
       } catch (error) {
         // 切换到登录页
-        console.log('222222🍒======>>>>', error);
+        console.error('222222🍒======>>>>', error);
 
         throw error;
       }
