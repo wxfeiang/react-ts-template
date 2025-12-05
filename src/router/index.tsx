@@ -3,15 +3,20 @@ import { Navigate, RouteObject, createBrowserRouter } from 'react-router';
 
 import ErrorBoundary from '../error-boundary';
 import { LazyLoad, routes } from './utils';
+import Layout from './utils/layout';
 
 const router: RouteObject[] = [
   {
+    path: '/login',
+    element: LazyLoad(lazy(() => import('@/views/test/login'))),
+  },
+  {
+    path: '/404',
+    element: LazyLoad(lazy(() => import('@/components/not-fount'))),
+  },
+  {
     path: '/',
-    /**
-     * 可以在Root组件（自己新建），用 useLoaderData 接收 loader 返回的数据做一些操作
-     * @see https://reactrouter.com/en/main/hooks/use-loader-data#useloaderdata
-     */
-    // element: <Root />,
+    element: <Layout />,
     errorElement: <ErrorBoundary />,
     children: [
       {
@@ -22,17 +27,11 @@ const router: RouteObject[] = [
         path: '/home',
         element: LazyLoad(lazy(() => import('@/views/home'))),
       },
-      {
-        path: '/login',
-        element: LazyLoad(lazy(() => import('@/views/test/login'))),
-      },
-      {
-        path: '/404',
-        element: LazyLoad(lazy(() => import('@/components/not-fount'))),
-      },
+
       ...routes, // modules 路由
     ],
   },
+
   {
     path: '*',
     element: <Navigate to="/404" />, // 找不到页面
