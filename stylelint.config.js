@@ -7,7 +7,7 @@ export default {
     'stylelint-config-standard-scss', // scss 标准配置
     'stylelint-config-recess-order', // CSS 属性排序配置
   ],
-  plugins: ['stylelint-order'],
+  plugins: ['stylelint-order', 'stylelint-scss'],
   rules: {
     'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
     'no-empty-source': null, // 关闭禁止空源码
@@ -21,6 +21,13 @@ export default {
         ignorePseudoClasses: ['global', 'export'],
       },
     ],
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['plugin'], // 仅忽略 @plugin
+      },
+    ],
+    'scss/at-rule-no-unknown': null, // 禁用 SCSS 对 @plugin 的检查
   },
   ignoreFiles: [
     '**/*.js',

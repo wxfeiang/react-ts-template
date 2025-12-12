@@ -14,14 +14,16 @@ function Home() {
   });
   return (
     <div className="">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 flex-wrap ">
         <Button onClick={() => router.push('/test/count')} style={{ fontSize: '15px' }}>
           跳转测试页面
         </Button>
         <Button type="primary" className="ml-2 xl:ml-10">
           Primary Button
         </Button>
-        <Button onClick={() => send()}>这里是请求的数据 点击获取</Button>
+        <Button onClick={() => send()} className="animate-spin">
+          这里是请求的数据 点击获取
+        </Button>
       </div>
 
       <Spin spinning={loading} tip="加载中...">
