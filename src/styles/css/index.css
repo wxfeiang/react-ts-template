@@ -1,3 +1,9 @@
 @layer theme, base, antd, components, utilities;
 @import 'tailwindcss';
 @plugin 'tailwindcss-animate';
+
+@theme {
+  --color-ss: oklch(72% 0.11 178deg);
+  --color-main: #0a5f85;
+  --font-sans: 'Inter', sans-serif;
+}

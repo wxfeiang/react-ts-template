@@ -24,7 +24,7 @@ export default {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['plugin'], // 仅忽略 @plugin
+        ignoreAtRules: ['plugin', 'theme'], // 仅忽略 @plugin
       },
     ],
     'scss/at-rule-no-unknown': null, // 禁用 SCSS 对 @plugin 的检查
