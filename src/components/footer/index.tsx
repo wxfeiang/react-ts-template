@@ -26,7 +26,7 @@ export default function footer() {
             <div className="text-center">友情链接</div>
           </div>
         </div>
-        <div className="text-center mt-4 text-sm animate-in fade-in zoom-in">
+        <div className="text-center mt-4 text-sm animate-in fade-in zoom-in font-yt">
           版权所有@兰州大学 陇ICP备10000336号-3 甘公网安备 62010202000830号
         </div>
       </div>
