@@ -24,7 +24,7 @@ function Home() {
         <Button onClick={() => send()} className="animate-spin">
           这里是请求的数据 点击获取
         </Button>
-        <div className="text-ss font-sans">测试颜色</div>
+        <div className="text-ss font-yt">测试颜色</div>
       </div>
 
       <Spin spinning={loading} tip="加载中...">
