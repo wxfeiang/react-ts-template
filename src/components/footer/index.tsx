@@ -2,8 +2,8 @@ export default function footer() {
   return (
     <footer className="py-4  bg-main text-white">
       <div className="container mx-auto">
-        <div className="flex justify-around gap-4 flex-wrap">
-          <div className="flex flex-col gap-2 text-center sm:text-left ">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 ">
+          <div className="flex flex-col gap-2 text-left sm:text-center">
             <div className="">
               <img src="https://picsum.photos/200" alt="" className="w-40 h-20" />
             </div>
